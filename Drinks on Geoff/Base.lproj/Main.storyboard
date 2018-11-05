@@ -63,6 +63,21 @@
             </objects>
             <point key="canvasLocation" x="1160.8" y="133.5832083958021"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Riv-0w-z0C">
+            <objects>
+                <viewController id="dlO-T5-akH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fvg-z0-uC0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HAL-Ti-cCe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yi6-40-xg7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="841"/>
+        </scene>
         <!--Drink View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -79,6 +94,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="nameEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="o3q-6X-hDW"/>
+                                        </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XBh-hu-Kze">
                                         <rect key="frame" x="0.0" y="38" width="295" height="30"/>
@@ -88,6 +106,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
+                                                <connections>
+                                                    <action selector="volumeEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="eZ9-Iw-r2E"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Unit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLm-Kg-U2H">
                                                 <rect key="frame" x="264.5" y="0.0" width="30.5" height="30"/>
@@ -102,12 +123,18 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="percentageEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="AS6-zl-5vg"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IAR-FT-IjM">
                                         <rect key="frame" x="0.0" y="114" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="priceEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="oxz-sX-Mem"/>
+                                        </connections>
                                     </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="300" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="1hQ-xB-nxL">
                                         <rect key="frame" x="0.0" y="152" width="295" height="295"/>
@@ -131,7 +158,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="UEh-a0-nMb">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GvJ-vo-V4c"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GvJ-vo-V4c">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="o9B-vA-PV0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="n9M-Kb-PMb">
                             <connections>
                                 <segue destination="cUX-dN-Iw6" kind="unwind" unwindAction="unwindToDrinkListWithSender:" id="RZs-wt-GRV"/>

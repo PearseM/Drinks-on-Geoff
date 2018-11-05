@@ -24,6 +24,7 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add new drink" //Sets title
+        updateSaveButton()
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,5 +71,29 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         imagePreview.image = selectedImage
         dismiss(animated: true, completion: nil)
     }
+    private func updateSaveButton(){
+        if nameTextField.text?.isEmpty ?? true || volumeTextField.text?.isEmpty ?? true || percentageTextField.text?.isEmpty ?? true || priceTextField.text?.isEmpty ?? true{
+            saveDrink.isEnabled = false
+        }
+        else {
+            saveDrink.isEnabled = true
+        }
+    }
+    @IBAction func nameEditingChanged(_ sender: Any) {
+        updateSaveButton()
+    }
+    @IBAction func volumeEditingChanged(_ sender: Any) {
+        updateSaveButton()
+    }
+    @IBAction func percentageEditingChanged(_ sender: Any) {
+        updateSaveButton()
+    }
+    @IBAction func priceEditingChanged(_ sender: Any) {
+        updateSaveButton()
+    }
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
