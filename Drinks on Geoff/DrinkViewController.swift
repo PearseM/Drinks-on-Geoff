@@ -92,7 +92,8 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         updateSaveButton()
     }
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
     
 }
