@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		2E43ADA2218CB9540005E43D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43ADA1218CB9540005E43D /* AppDelegate.swift */; };
-		2E43ADA4218CB9540005E43D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43ADA3218CB9540005E43D /* ViewController.swift */; };
+		2E43ADA4218CB9540005E43D /* DrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43ADA3218CB9540005E43D /* DrinkViewController.swift */; };
 		2E43ADA7218CB9540005E43D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E43ADA5218CB9540005E43D /* Main.storyboard */; };
 		2E43ADA9218CB9560005E43D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E43ADA8218CB9560005E43D /* Assets.xcassets */; };
-		2E43ADAC218CB9560005E43D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E43ADAA218CB9560005E43D /* LaunchScreen.storyboard */; };
+		2E7CA44F218DE15600D91F47 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CA44E218DE15600D91F47 /* Drink.swift */; };
+		2EEF5A22218F9B8700C0D0B7 /* DrinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF5A21218F9B8700C0D0B7 /* DrinkTableViewCell.swift */; };
+		2EEF5A24218FA09000C0D0B7 /* DrinkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF5A23218FA09000C0D0B7 /* DrinkTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2E43AD9E218CB9540005E43D /* Drinks on Geoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drinks on Geoff.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E43ADA1218CB9540005E43D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2E43ADA3218CB9540005E43D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2E43ADA3218CB9540005E43D /* DrinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkViewController.swift; sourceTree = "<group>"; };
 		2E43ADA6218CB9540005E43D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E43ADA8218CB9560005E43D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2E43ADAB218CB9560005E43D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E43ADAD218CB9560005E43D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E7CA44E218DE15600D91F47 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		2EEF5A21218F9B8700C0D0B7 /* DrinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTableViewCell.swift; sourceTree = "<group>"; };
+		2EEF5A23218FA09000C0D0B7 /* DrinkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +58,14 @@
 		2E43ADA0218CB9540005E43D /* Drinks on Geoff */ = {
 			isa = PBXGroup;
 			children = (
+				2E7CA44E218DE15600D91F47 /* Drink.swift */,
 				2E43ADA1218CB9540005E43D /* AppDelegate.swift */,
-				2E43ADA3218CB9540005E43D /* ViewController.swift */,
+				2E43ADA3218CB9540005E43D /* DrinkViewController.swift */,
 				2E43ADA5218CB9540005E43D /* Main.storyboard */,
 				2E43ADA8218CB9560005E43D /* Assets.xcassets */,
-				2E43ADAA218CB9560005E43D /* LaunchScreen.storyboard */,
 				2E43ADAD218CB9560005E43D /* Info.plist */,
+				2EEF5A21218F9B8700C0D0B7 /* DrinkTableViewCell.swift */,
+				2EEF5A23218FA09000C0D0B7 /* DrinkTableViewController.swift */,
 			);
 			path = "Drinks on Geoff";
 			sourceTree = "<group>";
@@ -122,7 +128,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E43ADAC218CB9560005E43D /* LaunchScreen.storyboard in Resources */,
 				2E43ADA9218CB9560005E43D /* Assets.xcassets in Resources */,
 				2E43ADA7218CB9540005E43D /* Main.storyboard in Resources */,
 			);
@@ -135,7 +140,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E43ADA4218CB9540005E43D /* ViewController.swift in Sources */,
+				2E43ADA4218CB9540005E43D /* DrinkViewController.swift in Sources */,
+				2EEF5A24218FA09000C0D0B7 /* DrinkTableViewController.swift in Sources */,
+				2E7CA44F218DE15600D91F47 /* Drink.swift in Sources */,
+				2EEF5A22218F9B8700C0D0B7 /* DrinkTableViewCell.swift in Sources */,
 				2E43ADA2218CB9540005E43D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,14 +157,6 @@
 				2E43ADA6218CB9540005E43D /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2E43ADAA218CB9560005E43D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2E43ADAB218CB9560005E43D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -285,6 +285,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4AL46YHYM8;
 				INFOPLIST_FILE = "Drinks on Geoff/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +304,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4AL46YHYM8;
 				INFOPLIST_FILE = "Drinks on Geoff/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
