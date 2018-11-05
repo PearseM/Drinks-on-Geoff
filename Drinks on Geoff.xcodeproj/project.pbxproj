@@ -14,6 +14,7 @@
 		2E7CA44F218DE15600D91F47 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CA44E218DE15600D91F47 /* Drink.swift */; };
 		2EEF5A22218F9B8700C0D0B7 /* DrinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF5A21218F9B8700C0D0B7 /* DrinkTableViewCell.swift */; };
 		2EEF5A24218FA09000C0D0B7 /* DrinkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF5A23218FA09000C0D0B7 /* DrinkTableViewController.swift */; };
+		BF29082D2190BCF7006D323D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29082C2190BCF7006D323D /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2E7CA44E218DE15600D91F47 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		2EEF5A21218F9B8700C0D0B7 /* DrinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTableViewCell.swift; sourceTree = "<group>"; };
 		2EEF5A23218FA09000C0D0B7 /* DrinkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTableViewController.swift; sourceTree = "<group>"; };
+		BF29082C2190BCF7006D323D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,13 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				2E7CA44E218DE15600D91F47 /* Drink.swift */,
+				2EEF5A21218F9B8700C0D0B7 /* DrinkTableViewCell.swift */,
 				2E43ADA1218CB9540005E43D /* AppDelegate.swift */,
+				BF29082C2190BCF7006D323D /* MenuViewController.swift */,
 				2E43ADA3218CB9540005E43D /* DrinkViewController.swift */,
+				2EEF5A23218FA09000C0D0B7 /* DrinkTableViewController.swift */,
 				2E43ADA5218CB9540005E43D /* Main.storyboard */,
 				2E43ADA8218CB9560005E43D /* Assets.xcassets */,
 				2E43ADAD218CB9560005E43D /* Info.plist */,
-				2EEF5A21218F9B8700C0D0B7 /* DrinkTableViewCell.swift */,
-				2EEF5A23218FA09000C0D0B7 /* DrinkTableViewController.swift */,
 			);
 			path = "Drinks on Geoff";
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E43ADA4218CB9540005E43D /* DrinkViewController.swift in Sources */,
+				BF29082D2190BCF7006D323D /* MenuViewController.swift in Sources */,
 				2EEF5A24218FA09000C0D0B7 /* DrinkTableViewController.swift in Sources */,
 				2E7CA44F218DE15600D91F47 /* Drink.swift in Sources */,
 				2EEF5A22218F9B8700C0D0B7 /* DrinkTableViewCell.swift in Sources */,
