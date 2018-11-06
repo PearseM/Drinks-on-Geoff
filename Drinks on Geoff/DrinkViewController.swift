@@ -114,7 +114,7 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
     
     private func updateSaveButton(){
-        if nameTextField.text?.isEmpty ?? true || volumeTextField.text?.isEmpty ?? true || percentageTextField.text?.isEmpty ?? true || priceTextField.text?.isEmpty ?? true{
+        if nameTextField.text?.isEmpty ?? true || volumeTextField.text?.isEmpty ?? true || percentageTextField.text?.isEmpty ?? true || priceTextField.text?.isEmpty ?? true || unitTextField.text?.isEmpty ?? true {
             saveDrink.isEnabled = false
         }
         else {
@@ -146,12 +146,13 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedUnit = pickerData[row]
-        unitTextField.text = selectedUnit
+        
     }
     //The "done" button function for the popup picker view
     @IBAction func closePickerView(_ sender: Any) {
         unitTextField.text = selectedUnit
         unitTextField.endEditing(true) //Closes the popup
+        updateSaveButton()
     }
     
 }
