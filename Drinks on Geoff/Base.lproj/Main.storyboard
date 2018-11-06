@@ -87,8 +87,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XBh-hu-Kze">
                                         <rect key="frame" x="0.0" y="38" width="295" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Volume" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lsf-E8-c3V">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Volume" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lsf-E8-c3V">
+                                                <rect key="frame" x="0.0" y="0.0" width="239.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
@@ -96,13 +96,12 @@
                                                     <action selector="volumeEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="eZ9-Iw-r2E"/>
                                                 </connections>
                                             </textField>
-                                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="f4O-XM-CCZ">
-                                                <rect key="frame" x="195" y="0.0" width="100" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="Zhg-UM-xdp"/>
-                                                    <constraint firstAttribute="width" constant="100" id="pPd-9v-7U2"/>
-                                                </constraints>
-                                            </pickerView>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dHN-oY-zto">
+                                                <rect key="frame" x="247.5" y="0.0" width="47.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Percentage" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Er5-Ud-tyV">
@@ -162,13 +161,44 @@
                         <outlet property="imagePreview" destination="1hQ-xB-nxL" id="rHN-qg-mz5"/>
                         <outlet property="nameTextField" destination="tRq-On-xif" id="KM9-Mf-Pfv"/>
                         <outlet property="percentageTextField" destination="Er5-Ud-tyV" id="Fdl-bE-DJm"/>
+                        <outlet property="popupView" destination="rk5-yq-bjh" id="HoX-L2-n2R"/>
                         <outlet property="priceTextField" destination="IAR-FT-IjM" id="jsy-bB-XPx"/>
                         <outlet property="saveDrink" destination="n9M-Kb-PMb" id="nLu-5H-01r"/>
                         <outlet property="unitPicker" destination="f4O-XM-CCZ" id="q01-6J-SxN"/>
+                        <outlet property="unitTextField" destination="dHN-oY-zto" id="YMo-sM-J4D"/>
                         <outlet property="volumeTextField" destination="Lsf-E8-c3V" id="mWc-aO-1PQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="rk5-yq-bjh" customClass="UIInputView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="288"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="f4O-XM-CCZ">
+                            <rect key="frame" x="27.5" y="64" width="320" height="216"/>
+                        </pickerView>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7O9-qv-QNg">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <items>
+                                <barButtonItem title="Done" id="9ab-4a-my0">
+                                    <connections>
+                                        <action selector="closePickerView:" destination="BYZ-38-t0r" id="rln-hC-9oz"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="7O9-qv-QNg" firstAttribute="top" secondItem="rk5-yq-bjh" secondAttribute="top" id="DXc-0P-K61"/>
+                        <constraint firstItem="f4O-XM-CCZ" firstAttribute="top" secondItem="7O9-qv-QNg" secondAttribute="bottom" constant="20" id="SPc-Xq-IqN"/>
+                        <constraint firstItem="f4O-XM-CCZ" firstAttribute="centerX" secondItem="rk5-yq-bjh" secondAttribute="centerX" id="cMq-mX-0H3"/>
+                        <constraint firstItem="7O9-qv-QNg" firstAttribute="leading" secondItem="rk5-yq-bjh" secondAttribute="leading" id="jz8-wV-tjo"/>
+                        <constraint firstAttribute="trailing" secondItem="7O9-qv-QNg" secondAttribute="trailing" id="mLL-ja-Lgp"/>
+                        <constraint firstAttribute="bottom" secondItem="f4O-XM-CCZ" secondAttribute="bottom" constant="8" id="sJx-pw-OAI"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Cra-bs-zxe"/>
+                </view>
                 <exit id="cUX-dN-Iw6" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="Xc9-xa-xry">
                     <connections>
@@ -176,7 +206,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2943" y="134"/>
+            <point key="canvasLocation" x="2990" y="134"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="fRx-vg-umG">

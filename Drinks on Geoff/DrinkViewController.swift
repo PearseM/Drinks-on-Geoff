@@ -16,8 +16,11 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     @IBOutlet weak var percentageTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var imagePreview: UIImageView!
+    @IBOutlet weak var unitTextField: UITextField!
     @IBOutlet var unitPicker: UIPickerView!
     
+    @IBOutlet weak var popupView: UIView!
+
     var pickerData: [String] = ["ml","CL","L"]
     var selectedUnit = "ml"
     var returnVolume: Float = 0
@@ -29,6 +32,7 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        unitTextField.inputView = popupView //Sets the keyboard of the unit field to be the popup view
         title = "Add new drink" //Sets title
         updateSaveButton()
 
@@ -142,6 +146,12 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedUnit = pickerData[row]
+        unitTextField.text = selectedUnit
+    }
+    //The "done" button function for the popup picker view
+    @IBAction func closePickerView(_ sender: Any) {
+        unitTextField.text = selectedUnit
+        unitTextField.endEditing(true) //Closes the popup
     }
     
 }
