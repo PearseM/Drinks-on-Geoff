@@ -86,8 +86,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XBh-hu-Kze">
                                         <rect key="frame" x="0.0" y="38" width="295" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Volume" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lsf-E8-c3V">
-                                                <rect key="frame" x="0.0" y="0.0" width="256.5" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Volume" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lsf-E8-c3V">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
@@ -95,12 +95,13 @@
                                                     <action selector="volumeEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="eZ9-Iw-r2E"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Unit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLm-Kg-U2H">
-                                                <rect key="frame" x="264.5" y="0.0" width="30.5" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="f4O-XM-CCZ">
+                                                <rect key="frame" x="195" y="0.0" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Zhg-UM-xdp"/>
+                                                    <constraint firstAttribute="width" constant="100" id="pPd-9v-7U2"/>
+                                                </constraints>
+                                            </pickerView>
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Percentage" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Er5-Ud-tyV">
@@ -160,6 +161,7 @@
                         <outlet property="percentageTextField" destination="Er5-Ud-tyV" id="Fdl-bE-DJm"/>
                         <outlet property="priceTextField" destination="IAR-FT-IjM" id="jsy-bB-XPx"/>
                         <outlet property="saveDrink" destination="n9M-Kb-PMb" id="nLu-5H-01r"/>
+                        <outlet property="unitPicker" destination="f4O-XM-CCZ" id="q01-6J-SxN"/>
                         <outlet property="volumeTextField" destination="Lsf-E8-c3V" id="mWc-aO-1PQ"/>
                     </connections>
                 </viewController>
