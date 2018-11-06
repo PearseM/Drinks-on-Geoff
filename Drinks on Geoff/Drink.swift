@@ -14,10 +14,9 @@ class Drink {
     var percentage: Float
     var price: Float
     var image: UIImage?
-    var numberOfDrinks: Int
     var relativeExpense: Float
     //MARK: Initialisation
-    init?(name: String, volume: Float, percentage: Float, price: Float, image: UIImage?, numberOfDrinks: Int) {
+    init?(name: String, volume: Float, percentage: Float, price: Float, image: UIImage?) {
         if name.isEmpty || volume<=0 || percentage<=0 || price<=0 {
             return nil
         }
@@ -26,9 +25,8 @@ class Drink {
         self.percentage = percentage
         self.price = price
         self.image = image
-        self.numberOfDrinks = numberOfDrinks
         //Calculation to find its relative cost.
-        self.relativeExpense = ((volume*Float(numberOfDrinks))*(percentage/100))/price
+        self.relativeExpense = ((volume)*(percentage/100))/price
     }
 }
 

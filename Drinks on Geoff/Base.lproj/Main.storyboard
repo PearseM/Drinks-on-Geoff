@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fXf-qI-N0g">
-                                <rect key="frame" x="40" y="98" width="295" height="447"/>
+                                <rect key="frame" x="40" y="98" width="295" height="523"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tRq-On-xif">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
@@ -122,8 +122,51 @@
                                             <action selector="priceEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="oxz-sX-Mem"/>
                                         </connections>
                                     </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5W-Es-VVx">
+                                        <rect key="frame" x="0.0" y="152" width="295" height="29"/>
+                                        <subviews>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="1" minimumValue="1" maximumValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="XAp-CY-JfN">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="stepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="SYJ-yd-vIU"/>
+                                                </connections>
+                                            </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Drinks:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldk-5V-7GH">
+                                                <rect key="frame" x="94" y="0.0" width="159" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJq-0z-bKk">
+                                                <rect key="frame" x="253" y="0.0" width="42" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="42" id="4Al-C9-v8I"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sqc-Mw-kDq">
+                                        <rect key="frame" x="0.0" y="189" width="295" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRk-Q9-Rkq">
+                                                <rect key="frame" x="0.0" y="0.0" width="246" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7xr-m0-hw2">
+                                                <rect key="frame" x="246" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="shareLocationSwitched:" destination="BYZ-38-t0r" eventType="valueChanged" id="uIm-2m-wG9"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="300" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="1hQ-xB-nxL">
-                                        <rect key="frame" x="0.0" y="152" width="295" height="295"/>
+                                        <rect key="frame" x="0.0" y="228" width="295" height="295"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="1hQ-xB-nxL" secondAttribute="height" multiplier="1:1" id="Cpz-K4-7LJ"/>
@@ -160,6 +203,7 @@
                     <connections>
                         <outlet property="imagePreview" destination="1hQ-xB-nxL" id="rHN-qg-mz5"/>
                         <outlet property="nameTextField" destination="tRq-On-xif" id="KM9-Mf-Pfv"/>
+                        <outlet property="numberOfDrinksDisplay" destination="AJq-0z-bKk" id="ILy-Hp-Dcp"/>
                         <outlet property="percentageTextField" destination="Er5-Ud-tyV" id="Fdl-bE-DJm"/>
                         <outlet property="popupView" destination="rk5-yq-bjh" id="HoX-L2-n2R"/>
                         <outlet property="priceTextField" destination="IAR-FT-IjM" id="jsy-bB-XPx"/>

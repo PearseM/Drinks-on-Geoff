@@ -8,8 +8,9 @@
 
 import UIKit
 import os.log
+import MapKit
 
-class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate{
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var volumeTextField: UITextField!
@@ -18,6 +19,7 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     @IBOutlet weak var imagePreview: UIImageView!
     @IBOutlet weak var unitTextField: UITextField!
     @IBOutlet var unitPicker: UIPickerView!
+    @IBOutlet var numberOfDrinksDisplay: UILabel!
     
     @IBOutlet weak var popupView: UIView!
 
@@ -25,10 +27,13 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     var selectedUnit = "ml"
     var returnVolume: Float = 0
     var unitMultiplier: Float = 1
+    var numberOfDrinks: Float = 1
+    var sendLocation: Bool = false
 
     @IBOutlet weak var saveDrink: UIBarButtonItem!
     var drink: Drink?
     
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +43,16 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
 
         self.unitPicker.delegate = self
         self.unitPicker.dataSource = self
+        
+        //location usage authorisation needs finising
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if (CLLocationManager.locationServicesEnabled()){
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,13 +76,13 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         
         
         if let volume = Float(volumeTextField.text!){
-            returnVolume = volume*unitMultiplier
+            returnVolume = volume*unitMultiplier*numberOfDrinks
         }
         
         let name = nameTextField.text ?? ""
         let photo = imagePreview.image
         if  let percentage = Float(percentageTextField.text!), let price = Float(priceTextField.text!){
-            drink = Drink(name: name, volume: returnVolume, percentage: percentage, price: price, image: photo, numberOfDrinks: 1)
+            drink = Drink(name: name, volume: returnVolume, percentage: percentage, price: price, image: photo)
         }
     }
     
@@ -154,6 +169,20 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         unitTextField.endEditing(true) //Closes the popup
         updateSaveButton()
     }
+    //Stepper value changes the number of drinks
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        numberOfDrinks = Float(sender.value)
+        numberOfDrinksDisplay.text = String(Int(numberOfDrinks))
+    }
+    //
+    @IBAction func shareLocationSwitched(_ sender: UISwitch) {
+        if (CLLocationManager.locationServicesEnabled() == false){
+            sender.isOn = false
+        }
+        sendLocation.toggle()
+        
+    }
+    ///
     
 }
 

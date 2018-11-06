@@ -39,7 +39,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allows you to add photos of drinks.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Share your current location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Geoff Likes to use data</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Allows you to take photo</string>
 </dict>
 </plist>
