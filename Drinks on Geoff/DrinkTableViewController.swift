@@ -10,7 +10,8 @@ import UIKit
 
 class DrinkTableViewController: UITableViewController {
     
-    var drinks = [Drink]()
+    var drinks = [instanceOfDrink]()
+    var drinktypes = [Drink]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,37 +36,39 @@ class DrinkTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of DrinkTableViewCell.")
         }
 
-        let drink = drinks[indexPath.row]
-        cell.nameLabel.text = drink.name
-        cell.photoImageView.image = drink.image
-
+        let currentDrink = drinks[indexPath.row]
+        cell.nameLabel.text = currentDrink.drink.name
+        cell.photoImageView.image = currentDrink.image
         return cell
     }
     
     
     @IBAction func unwindToDrinkList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? DrinkViewController, let drink = sourceViewController.drink {
-            addDrink(drinktoadd: drink)
+        if let sourceViewController = sender.source as? DrinkViewController, let instanceOfDrink = sourceViewController.CurrentInstanceOfDrink, let drinkTypeToAdd = sourceViewController.instanceDrinkType  {
             
-
+            addDrink(drinktoadd: instanceOfDrink)
+            
+            if (sourceViewController.isNewDrink){
+                drinktypes.append(drinkTypeToAdd)
+            }
             self.tableView.reloadData()
         }
     }
 
 
-    func addDrink(drinktoadd: Drink){
+    func addDrink(drinktoadd: instanceOfDrink){
         
         let drinkToAdd = drinktoadd
         
         var index = 0
         
-        var front: [Drink] = []
-        var back: [Drink] = []
+        var front: [instanceOfDrink] = []
+        var back: [instanceOfDrink] = []
         
-        var new_array: [Drink] = []
+        var new_array: [instanceOfDrink] = []
         
         while (index < drinks.count) {
-            if (drinkToAdd.relativeExpense < drinks[index].relativeExpense){
+            if (drinkToAdd.relativeCheapness < drinks[index].relativeCheapness){
                 front.append(drinks[index])
             } else{
                 back.append(drinks[index])
@@ -84,4 +87,13 @@ class DrinkTableViewController: UITableViewController {
         
         drinks = new_array
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is DrinkViewController
+        {
+            let vc = segue.destination as? DrinkViewController
+            vc?.drinkTypes = drinktypes
+        }
+    }
+    
 }

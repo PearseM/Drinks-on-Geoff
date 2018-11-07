@@ -6,27 +6,34 @@
 //  Copyright © 2018 Pearse Moloney. All rights reserved.
 //
 
+//Aidan's fun code
+
 import UIKit
 
-class Drink {
+struct Drink {
     var name: String
-    var volume: Float
     var percentage: Float
+    //var locations: [Coordinates]?
+}
+
+class instanceOfDrink {
+    var drink: Drink
+    var volume: Float
     var price: Float
+    var numberOfDrinks: Int
     var image: UIImage?
-    var relativeExpense: Float
-    //MARK: Initialisation
-    init?(name: String, volume: Float, percentage: Float, price: Float, image: UIImage?) {
-        if name.isEmpty || volume<=0 || percentage<=0 || price<=0 {
-            return nil
-        }
-        self.name = name
+    
+    var relativeCheapness: Float
+    
+    init?(drink: Drink, volume: Float, price: Float, numberOfDrinks: Int, image: UIImage?) {
+        self.drink = drink
         self.volume = volume
-        self.percentage = percentage
         self.price = price
+        self.numberOfDrinks = numberOfDrinks
         self.image = image
-        //Calculation to find its relative cost.
-        self.relativeExpense = ((volume)*(percentage/100))/price
+        
+        self.relativeCheapness = ((volume*Float(numberOfDrinks))*(drink.percentage/100))/price
     }
+    
 }
 

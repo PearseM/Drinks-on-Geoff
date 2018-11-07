@@ -31,7 +31,11 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     var sendLocation: Bool = false
 
     @IBOutlet weak var saveDrink: UIBarButtonItem!
-    var drink: Drink?
+    
+    var drinkTypes: [Drink] = [] //The struct which defines the type of drink
+    var CurrentInstanceOfDrink: instanceOfDrink? //
+    var isNewDrink = true
+    var instanceDrinkType: Drink?
     
     let locationManager = CLLocationManager()
     
@@ -75,14 +79,27 @@ class DrinkViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         }
         
         
-        if let volume = Float(volumeTextField.text!){
-            returnVolume = volume*unitMultiplier*numberOfDrinks
-        }
-        
-        let name = nameTextField.text ?? ""
         let photo = imagePreview.image
-        if  let percentage = Float(percentageTextField.text!), let price = Float(priceTextField.text!){
-            drink = Drink(name: name, volume: returnVolume, percentage: percentage, price: price, image: photo)
+        if let volume = Float(volumeTextField.text!), let price = Float(priceTextField.text!), let name = nameTextField.text, let percentage = Float(percentageTextField.text!){
+            
+            returnVolume = volume*unitMultiplier
+            
+            
+            instanceDrinkType = Drink(name: name, percentage: percentage)
+            
+            var index = 0
+            while (index < drinkTypes.count){
+                if (name == drinkTypes[index].name && percentage == drinkTypes[index].percentage) {
+                    instanceDrinkType = drinkTypes[index]
+                    isNewDrink = false
+                    break
+                }
+                
+                index = index + 1
+                
+            }
+            
+            CurrentInstanceOfDrink = instanceOfDrink(drink: instanceDrinkType!, volume: returnVolume, price: price, numberOfDrinks: Int(numberOfDrinks), image: photo)
         }
     }
     
